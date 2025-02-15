@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 5px rgba(37, 145, 222);
+            border-bottom:4px  #065892;
+        }
+        .categories {
+            margin: 20px;
+        }
+        .categories button {
+            background: #2591DE;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            color: white;
+            border-radius: 5px;
+            transition: 0.3s;
+            box-shadow: 2px 2px 4px rgba(37, 145, 222)
+        }
+        .categories button:active {
+            transform: translateY(3px);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        .categories button:hover {
+            background: #065892;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(3, 3, 3, 0.5);
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(37, 145, 222);
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Gallery</h1>
+    <div class="categories">
+        <button onclick="filterGallery('nature')">Nature and Landscapes</button>
+        <button onclick="filterGallery('art')">Art and Creativity</button>
+        <button onclick="filterGallery('fashion')">Fashion and Style</button>
+        <button onclick="filterGallery('technology')">Technology and Gadgets</button>
+        <button onclick="filterGallery('travel')">Travel and Adventure</button>
+        <button onclick="filterGallery('education')">Education and Learning</button>
+    </div>
+    <div class="gallery" id="gallery">
+        <img src="images/nature 1.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 1">
+        <img src="images/nature 2.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 2">
+        <img src="images/nature 3.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 3">
+        <img src="images/nature 4.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 4">
+        <img src="images/nature 5.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 5">
+        <img src="images/nature 6.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 6">
+        <img src="images/nature 7.jpg" class="nature" onclick="openModal(this.src)" alt="Nature 7">
+        <img src="images/art 1.jpg" class="art" onclick="openModal(this.src)" alt="Art 1">
+        <img src="images/art 2.jpg" class="art" onclick="openModal(this.src)" alt="Art 2">
+        <img src="images/art 3.jpg" class="art" onclick="openModal(this.src)" alt="Art 3">
+        <img src="images/art 4.jpg" class="art" onclick="openModal(this.src)" alt="Art 4">
+        <img src="images/art 5.jpg" class="art" onclick="openModal(this.src)" alt="Art 5">
+        <img src="images/art 6.jpg" class="art" onclick="openModal(this.src)" alt="Art 6">
+        <img src="images/art 7.jpg" class="art" onclick="openModal(this.src)" alt="Art 7">
+        <img src="images/fashion 1.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 1">
+        <img src="images/fashion 2.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 2">
+        <img src="images/fashion 3.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 3">
+        <img src="images/fashion 4.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 4">
+        <img src="images/fashion 5.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 5">
+        <img src="images/fashion 6.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 6">
+        <img src="images/fashion 7.jpg" class="fashion" onclick="openModal(this.src)" alt="Fashion 7">
+        <img src="images/technology 1.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 1">
+        <img src="images/technology 2.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 2">
+        <img src="images/technology 3.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 3">
+        <img src="images/technology 4.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 4">
+        <img src="images/technology 5.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 5">
+        <img src="images/technoloy 6.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 6">
+        <img src="images/technology 7.jpg" class="technology" onclick="openModal(this.src)" alt="Technology 7">
+        <img src="images/travel 1.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 1">
+        <img src="images/travel 2.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 2">
+        <img src="images/travel 3.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 3">
+        <img src="images/travel 4.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 4">
+        <img src="images/travel 5.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 5">
+        <img src="images/travel 6.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 6">
+        <img src="images/travel 7.jpg" class="travel" onclick="openModal(this.src)" alt="Travel 7">
+        <img src="images/education 1.jpg" class="education" onclick="openModal(this.src)" alt="Education 1">
+        <img src="images/education 2.jpg" class="education" onclick="openModal(this.src)" alt="Education 2">
+        <img src="images/education 3.jpg" class="education" onclick="openModal(this.src)" alt="Education 3">
+        <img src="images/education 4.jpg" class="education" onclick="openModal(this.src)" alt="Education 4">
+        <img src="images/education 5.jpg" class="education" onclick="openModal(this.src)" alt="Education 5">
+        <img src="images/education 6.jpg" class="education" onclick="openModal(this.src)" alt="Education 6">
+        <img src="images/education 7.jpg" class="education" onclick="openModal(this.src)" alt="Education 7">
+       
+    </div>
+
+
+
+    <script>
+        function openModal(src) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-img").src = src;
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+
+        function filterGallery(category) {
+            let images = document.querySelectorAll('.gallery img');
+            images.forEach(img => {
+                img.style.display = img.classList.contains(category) ? 'inline-block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

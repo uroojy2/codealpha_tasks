@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqsa Basheer | Web Developer</title>
+    <style>
+:root {
+    --dark-green: #283618;
+    --olive-green: #606C38;
+    --beige: #FEFAE0;
+    --orange: #e7964a;
+    --dark-orange: #BC6C25;
+}
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--dark-green);
+    color: var(--beige);
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    position: fixed;
+    width: 100%;
+    border-bottom: 4px solid var(--dark-orange);
+    background: var(--beige);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--olive-green);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--olive-green);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: var(--dark-orange);
+}
+
+/* Hero Section */
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 150px 10%;
+    height: 100vh;
+    background: linear-gradient(to right, var(--dark-green) 50%, var(--beige) 50%);
+    position: relative;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--orange);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--beige);
+}
+
+.hero-content h3 {
+    font-size: 22px;
+    color: var(--orange);
+    font-weight: 500;
+}
+
+.hero-content p {
+    font-size: 16px;
+    color: var(--beige);
+    margin: 10px 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--orange);
+    color: var(--dark-green);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: var(--dark-orange);
+}
+
+/* Hero Image */
+.hero-image {
+    width: 450px; 
+    height: 450px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translate(20px, 30px);
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    image-rendering: crisp-edges;
+    object-fit: cover;
+}
+
+/* Services Section */
+#services {
+    padding: 80px 10%;
+    text-align: center;
+    background: var(--beige);
+    color: var(--dark-green);
+}
+
+#services h2 {
+    font-size: 30px;
+    color: var(--dark-green);
+    margin-bottom: 20px;
+}
+
+.service-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background: var(--dark-green);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--beige);
+}
+
+.service-box h3 {
+    font-size: 22px;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+/* Education Section */
+#education {
+    padding: 80px 10%;
+    background: var(--beige);
+    color: var(--dark-green);
+    text-align: center;
+}
+
+#education h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.education-box {
+    background: var(--dark-green);
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    text-align: left;
+    color: var(--beige);
+}
+
+.education-box h3 {
+    font-size: 22px;
+    color: var(--orange);
+}
+
+.education-box p {
+    font-size: 16px;
+}
+
+
+/* Skills Section */
+#skills {
+    background: var(--beige);
+    color: var(--dark-green);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: center;
+}
+
+#skills h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-card {
+    background: var(--dark-green);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 120px;
+    color: var(--beige);
+}
+
+.skill-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Certifications Section */
+#certifications {
+    background: var(--dark-green);
+    color: var(--beige);
+    padding-top: 60px; 
+    padding-bottom: 60px; 
+    text-align: center;
+}
+
+#certifications h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.certification-box h3 {
+    font-size: 22px;
+    color: var(--dark-orange); 
+    font-weight: bold;
+}
+
+.certification-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.certification-box {
+    background: var(--beige);
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    text-align: center;
+    color: var(--dark-green);
+    border-left: 7px solid var(--orange);
+}
+
+/* Contact Section */
+#contact {
+    text-align: center;
+    padding: 80px 10%;
+    background: solid var(--orange);
+    color: var(--beige);
+}
+
+#contact h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background: var(--beige);
+    color: var(--dark-green);
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background: var(--dark-orange);
+    border: none;
+    color: var(--dark-green);
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.contact-form button:hover {
+    background: var(--beige);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--beige);
+    color: var(--dark-green);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 350px;
+        height: 350px;
+        transform: translate(0px, 20px); 
+    }
+
+    .service-container {
+        flex-direction: column;
+    }
+}
+
+</style>
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <h1>Aqsa Basheer</h1>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h2>Hello, My Name is</h2>
+            <h1>Aqsa Basheer</h1>
+            <h3> Front-end Web Developer</h3>
+            <p>Building modern and interactive web experiences.</p>
+            <a href="images/AQSA BASHEER.pdf" class="btn">See My Resume</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/vecteezy_laptop-mockup-with-a-coding-theme-perfect-for-ware_48635474.jpg" alt="Your Image">
+        </div>
+    </section>
+
+    <!-- Education Section -->
+<section id="education">
+    <h2>Education</h2>
+    <div class="education-container">
+        <div class="education-box">
+            <h3>Bachelor’s in Computer Science</h3>
+            <p>Jinnah University For Women| 2022 - 2025</p>
+        </div>
+        <div class="education-box">
+            <h3>Intermediate (Pre-Medical)</h3>
+            <p> R.B Memon Model Higher Secondary School and college Khuhra | 2020</p>
+        </div>
+        <div class="education-box">
+            <h3>Matriculation (Science)</h3>
+            <p> R.B Memon Model Higher Secondary School and college Khuhra | 2018</p>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML Logo">
+            <p>HTML</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS Logo">
+            <p>CSS</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript Logo">
+            <p>JavaScript</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Logo">
+            <p>React.js</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js Logo">
+            <p>Node.js</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git Logo">
+            <p>Git</p>
+        </div>
+        <div class="skill-card">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub Logo">
+            <p>GitHub</p>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications">
+    <h2>Certifications</h2>
+    <div class="certification-container">
+        <div class="certification-box">
+            <h3>Certificate in Information Technology</h3>
+            <p>Global Computer Institute, Karachi</p>
+        </div>
+        <div class="certification-box">
+            <h3>Certificate of Achievement</h3>
+            <p>Event Management Head, Mathelets Society</p>
+        </div>
+        <div class="certification-box">
+            <h3>Project Certificate</h3>
+            <p>Create a Mockup in Figma|Coursera</p>
+        </div>
+        <div class="certification-box">
+            <h3>Project Certificate</h3>
+            <p>Draw an interactive wireframe in Mockplus|Coursera</p>
+        </div>
+        <div class="certification-box">
+            <h3>Certificate of Attendance</h3>
+            <p>Flutter Bootcamp</p>
+        </div>
+        <div class="certification-box">
+            <h3>Certificate of Attendance</h3>
+            <p>A Gentle Introduction to AI on Azure</p>
+        </div>
+        <div class="certification-box">
+            <h3>Certificate of Participation</h3>
+            <p>Introduction to MLSA |2024</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- Services Section -->
+<section id="services">
+        <h2>What I Do</h2>
+        <div class="service-container">
+            <div class="service-box">
+                <h3>Responsive Web Design</h3>
+                <p>Building modern, mobile-friendly websites with a seamless user experience.</p>
+            </div>
+            <div class="service-box">
+                <h3>Front-End Development</h3>
+                <p>Creating fast, interactive, and dynamic websites using modern web technologies.</p>
+            </div>
+            <div class="service-box">
+                <h3>UI/UX Design Implementation</h3>
+                <p>Bringing design mockups to life with pixel-perfect coding and animations.</p>
+            </div>
+            <div class="service-box">
+                <h3>Website Performance Optimization</h3>
+                <p>Boosting website speed and performance through code optimization and best practices.</p>
+            </div>
+            <div class="service-box">
+                <h3>API Integration</h3>
+                <p>Fetching real-time data and integrating APIs for dynamic web applications.</p>
+            </div>
+            <div class="service-box">
+                <h3>Custom Web Components</h3>
+                <p>Developing dynamic and engaging UI elements using modern front-end technologies.</p>
+            </div>
+        </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>&copy; 2025 AQSA BASHEER | All Rights Reserved</footer>
+
+</body>
+</html>

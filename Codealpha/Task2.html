@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://tse3.mm.bing.net/th?id=OIP.nfT1UNOEgfJnuGGXS-zAuQHaEo&pid=Api&P=0&h=220') no-repeat center center fixed;
+    background-size: cover;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+    .calculator {
+      background: #e6535300;
+      border-radius: 10px;
+      box-shadow: 0 -10px 20px 10px rgba(226, 226, 225, 0.8);
+      padding: 20px;
+      width: 300px;
+    }
+    .display {
+      background: #fafafaf8;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      padding: 15px;
+      font-size: 1.5em;
+      text-align: right;
+      height: 50px;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+
+    }
+    button {
+      background: #f8f8f8;
+      border: black;
+      color: rgb(10, 2, 2);
+      font-size: 1.2em;
+      padding: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(226, 224, 224, 0.4);
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #5a6268;
+    }
+    button:active {
+      background: #343a40;
+    }
+    .button-clear {
+      background: #dc3545;
+    }
+    .button-backspace {
+      background: #ffc107;
+    }
+    .button-equal {
+      background: #28a745;
+      grid-column: span 4;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div id="display" class="display">0</div>
+    <div class="buttons">
+      <button class="button-clear" onclick="clearDisplay()">C</button>
+      <button class="button-backspace" onclick="backspace()">←</button>
+      <button onclick="appendValue('/')">/</button>
+      <button onclick="appendValue('*')">*</button>
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('-')">-</button>
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('+')">+</button>
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="appendValue('0')">0</button>
+      <button class="button-equal" onclick="calculateResult()">=</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+
+    // Clear the entire display
+    function clearDisplay() {
+      display.textContent = '0';
+    }
+
+    // Append a value to the display
+    function appendValue(value) {
+      if (display.textContent === '0') {
+        display.textContent = value;
+      } else {
+        display.textContent += value;
+      }
+    }
+
+    // Calculate the result of the current expression
+    function calculateResult() {
+      try {
+        const result = eval(display.textContent);
+        display.textContent = result;
+      } catch {
+        display.textContent = 'Error';
+      }
+    }
+
+    // Remove the last character from the display
+    function backspace() {
+      if (display.textContent.length === 1) {
+        display.textContent = '0';
+      } else {
+        display.textContent = display.textContent.slice(0, -1);
+      }
+    }
+  </script>
+</body>
+</html>
